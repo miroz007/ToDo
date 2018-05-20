@@ -12,11 +12,9 @@ import SwipeCellKit
 class SwipeTableViewController: UITableViewController , SwipeTableViewCellDelegate{
     
     
-    func visibleRect(for tableView: UITableView) -> CGRect? {
-    }
-    
-    
     var cell: UITableViewCell?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +22,9 @@ class SwipeTableViewController: UITableViewController , SwipeTableViewCellDelega
     }
     
     //TableView DataSource Methods
+    func visibleRect(for tableView: UITableView) -> CGRect? {
+        return self.tableView.frame
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SwipeTableViewCell
